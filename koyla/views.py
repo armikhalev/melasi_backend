@@ -3,56 +3,20 @@ from rest_framework import generics
 from .models import Koyla
 from .serializers import KoylaSerializer
 
-class A_WordSet(generics.ListAPIView):
-	queryset = Koyla.objects.filter(word__startswith='a')
+# English words
+class WordSet(generics.ListAPIView):
+
 	serializer_class = KoylaSerializer
 
 	def get_queryset(self):
+		queryset = self.kwargs['letter']
+		return Koyla.objects.filter(word__startswith=queryset)
 
-	    	return Koyla.objects.filter(word__startswith='a')
+# Mela words
+class LaSet(generics.ListAPIView):
 
-
-class D_WordSet(generics.ListAPIView):
-	queryset = Koyla.objects.filter(word__startswith='d')
 	serializer_class = KoylaSerializer
 
 	def get_queryset(self):
-
-	    	return Koyla.objects.filter(word__startswith='d')
-
-
-class F_WordSet(generics.ListAPIView):
-	queryset = Koyla.objects.filter(word__startswith='f')
-	serializer_class = KoylaSerializer
-
-	def get_queryset(self):
-
-	    	return Koyla.objects.filter(word__startswith='f')
-
-####################### Here starts the Mela dictionary ######################
-
-class A_LaSet(generics.ListAPIView):
-	queryset = Koyla.objects.filter(la__startswith='a')
-	serializer_class = KoylaSerializer
-
-	def get_queryset(self):
-
-	    	return Koyla.objects.filter(la__startswith='a')
-
-
-class D_LaSet(generics.ListAPIView):
-	queryset = Koyla.objects.filter(la__startswith='d')
-	serializer_class = KoylaSerializer
-
-	def get_queryset(self):
-
-	    	return Koyla.objects.filter(la__startswith='d')
-
-
-class F_LaSet(generics.ListAPIView):
-	queryset = Koyla.objects.filter(la__startswith='f')
-	serializer_class = KoylaSerializer
-
-	def get_queryset(self):
-
-	    	return Koyla.objects.filter(la__startswith='f')
+		queryset = self.kwargs['letter']
+		return Koyla.objects.filter(la__startswith=queryset)
