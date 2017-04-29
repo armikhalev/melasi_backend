@@ -23,7 +23,7 @@ class LaSet(generics.ListAPIView):
      
 	def get_queryset(self):
 		queryset = Koyla.objects.all()
-		la = self.request.query_params.get('la', None)
+		la = self.request.query_params.get('letter', None)
 		if la is not None:
 			queryset = queryset.filter(la__startswith=la)
 
