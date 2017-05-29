@@ -15,3 +15,7 @@ class Card(models.Model):
 
 	def __str__(self):
 		return self.front + " == " + self.back
+
+class Intro(models.Model):
+	title = models.CharField(max_length=100)
+	body = models.TextField()
