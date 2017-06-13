@@ -19,3 +19,11 @@ class Card(models.Model):
 class Intro(models.Model):
 	title = models.CharField(max_length=100)
 	body = models.TextField()
+
+class GrammarCard(models.Model):
+	title = models.CharField(max_length=100)
+	body = models.TextField()
+	comment = models.TextField()
+
+	def __str__(self):
+		return self.title + ", " + self.body  + ", " + self.comment

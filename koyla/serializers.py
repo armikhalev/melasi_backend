@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Koyla, Card, Intro
+from .models import Koyla, Card, Intro, GrammarCard
 
 class KoylaSerializer(serializers.HyperlinkedModelSerializer):
 	id = serializers.ReadOnlyField()
@@ -12,9 +12,15 @@ class CardSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = Card
 		fields = ('id','front','back','flip')
-		
+
 class IntroSerializer(serializers.HyperlinkedModelSerializer):
 	id = serializers.ReadOnlyField()
 	class Meta:
 		model = Intro
 		fields = ('id','title','body')
+
+class GrammarCardSerializer(serializers.HyperlinkedModelSerializer):
+	id = serializers.ReadOnlyField()
+	class Meta:
+		model = GrammarCard
+		fields = ('id', 'title', 'body', 'comment')

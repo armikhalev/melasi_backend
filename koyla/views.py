@@ -1,7 +1,7 @@
 from rest_framework import generics
 
-from .models import Koyla, Card, Intro
-from .serializers import KoylaSerializer, CardSerializer, IntroSerializer
+from .models import Koyla, Card, Intro, GrammarCard
+from .serializers import KoylaSerializer, CardSerializer, IntroSerializer, GrammarCardSerializer
 
 # English words
 class WordSet(generics.ListAPIView):
@@ -43,4 +43,11 @@ class IntroSet(generics.ListAPIView):
 
 	def get_queryset(self):
 		queryset = Intro.objects.all()
+		return queryset
+
+class GrammarCardSet(generics.ListAPIView):
+	serializer_class = GrammarCardSerializer
+
+	def get_queryset(self):
+		queryset = GrammarCard.objects.all()
 		return queryset
