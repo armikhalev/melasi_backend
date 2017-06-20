@@ -54,3 +54,7 @@ class GrammarCardSet(generics.ListAPIView):
 		if id is not None:
 			queryset = queryset.filter(id=id)
 		return queryset
+	
+class GrammarCardDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = GrammarCard.objects.all()
+	serializer_class = GrammarCardSerializer
