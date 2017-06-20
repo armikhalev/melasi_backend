@@ -50,4 +50,7 @@ class GrammarCardSet(generics.ListAPIView):
 
 	def get_queryset(self):
 		queryset = GrammarCard.objects.all()
+		id = self.request.query_params.get('id', None)
+		if id is not None:
+			queryset = queryset.filter(id=id)
 		return queryset
