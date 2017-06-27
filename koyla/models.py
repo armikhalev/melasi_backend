@@ -4,9 +4,10 @@ class GrammarCard(models.Model):
 	title = models.CharField(max_length=100)
 	body = models.TextField()
 	comment = models.TextField()
+	category = models.CharField(max_length=64, default="grammar")
 
 	def __str__(self):
-		return self.title + ": " + self.body  + ", " + self.comment
+		return self.title + ": " + self.body  + ", " + self.comment + ", " + self.category
 
 class Koyla(models.Model):
 	word = models.CharField(max_length=30)

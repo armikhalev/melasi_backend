@@ -6,7 +6,7 @@ class GrammarCardSerializer(serializers.ModelSerializer):
 	id = serializers.ReadOnlyField()
 	class Meta:
 		model = GrammarCard
-		fields = ('id', 'title', 'body', 'comment')
+		fields = ('id', 'title', 'body', 'comment', 'category')
 
 class KoylaSerializer(serializers.ModelSerializer):
 	id = serializers.ReadOnlyField()
