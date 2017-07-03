@@ -30,3 +30,11 @@ class Card(models.Model):
 class Intro(models.Model):
 	title = models.CharField(max_length=100)
 	body = models.TextField()
+
+class Alphabet(models.Model):
+	letter = models.CharField(max_length=2, default='a')
+	name = models.CharField(max_length=10, default='a')
+	example = models.CharField(max_length=100, default='car')
+
+	def __str__(self):
+		return self.letter + ", " + self.name + ", " + self.example

@@ -1,5 +1,5 @@
 from rest_framework_json_api import serializers
-from .models import Koyla, Card, Intro, GrammarCard
+from .models import Koyla, Card, Intro, GrammarCard, Alphabet
 
 
 class GrammarCardSerializer(serializers.ModelSerializer):
@@ -27,3 +27,9 @@ class IntroSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Intro
 		fields = ('id','title','body')
+
+class AlphabetSerializer(serializers.ModelSerializer):
+	id = serializers.ReadOnlyField()
+	class Meta:
+		model = Alphabet
+		fields = ('id','letter','name','example')
